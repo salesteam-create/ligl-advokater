@@ -39,8 +39,9 @@ at the bottom right turns the highlighting off for a cleaner demo.
 ## Build
 
 ```
-node build.mjs        # writes the site to dist/
+node build.mjs        # writes the site to docs/
 ```
 
-Open `dist/index.html` in a browser, or serve the folder (`python3 -m http.server -d dist`).
+Open `docs/index.html` in a browser, or serve the folder (`python3 -m http.server -d docs`).
+GitHub Pages serves the `docs/` folder: https://salesteam-create.github.io/ligl-advokater/
 Content lives in `src/pages/*.mjs`, shared layout in `src/layout.mjs`, styles in `assets/css/site.css`.
