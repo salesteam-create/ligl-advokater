@@ -1,4 +1,4 @@
-import { ph, portrait, portraitSvg, pageHero, ctaBand } from '../layout.mjs';
+import { ph, portrait, portraitSvg, pageHero, ctaBand, lawyerRow, arrow } from '../layout.mjs';
 
 const personLd = (name) => ({
   '@context': 'https://schema.org',
@@ -27,7 +27,7 @@ const profile = ({ file, name, first, quote, intro, areas, cases, background, ro
     </div>
     <p class="pull">${quote}</p>
     <div class="btn-row">
-      <a class="btn btn-gold" href="kontakt.html#book">Book 20 minutter med ${first}</a>
+      <a class="btn btn-teal" href="kontakt.html#book">Book 20 minutter med ${first} ${arrow}</a>
     </div>
   </div>
 </section>
@@ -88,17 +88,6 @@ const fredny = profile({
   roles: [ph('Verv'), ph('Foredrag/publikasjoner')],
 });
 
-const card = (href, name, tags) => `
-      <a class="lawyer-card" href="${href}">
-        ${portrait()}
-        <div class="info">
-          <span class="name">${name}</span>
-          <span class="role">Advokat og partner</span>
-          <div class="tags">${tags.map((t) => `<span class="tag">${t}</span>`).join('')}</div>
-          <span class="link-arrow">Les mer</span>
-        </div>
-      </a>`;
-
 const lawyers = {
   file: 'advokatene.html',
   title: 'Advokatene | LIGL advokater',
@@ -107,9 +96,10 @@ const lawyers = {
 ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Advokatene' }], title: 'Advokatene', lead: 'To advokater. Begge tar telefonen.', img: 'advokatene.jpg' })}
 <section class="section">
   <div class="wrap">
-    <div class="lawyers">
-      ${card('morten-b-tidemann.html', 'Morten B. Tidemann', ['Corporate/M&amp;A', 'Tvisteløsning og prosedyre', 'Arbeidsrett'])}
-      ${card('fredny-bade.html', 'Fredny Bade', [ph('Fagfelt 1'), ph('Fagfelt 2'), ph('Fagfelt 3')])}
+    <div class="lawyer-list">
+      ${lawyerRow({ name: 'Morten B. Tidemann', href: 'morten-b-tidemann.html', first: 'Morten', areas: ['Corporate/M&amp;A', 'Tvisteløsning og prosedyre', 'Arbeidsrett', 'Immaterialrett'], bio: 'Morten har arbeidet med forretningsjuss i nærmere 30 år, med transaksjoner, tvisteløsning og arbeidsrett som hovedfelt. Han har prosedert i alle instanser, herunder for Høyesterett.' })}
+      <hr class="rule">
+      ${lawyerRow({ name: 'Fredny Bade', href: 'fredny-bade.html', first: 'Fredny', reverse: true, areas: [ph('Fagfelt 1'), ph('Fagfelt 2'), ph('Fagfelt 3')], bio: ph('Kort introduksjon. Profilteksten er ikke skrevet ennå.') })}
     </div>
   </div>
 </section>
@@ -141,7 +131,7 @@ ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Kontak
 
     <div class="booking" id="book" data-booking>
       <div class="booking-info">
-        <span class="eyebrow" style="color:var(--teal)">Book et møte</span>
+        <span class="eyebrow">Book et møte</span>
         <h2 class="h2">Book 20 minutter</h2>
         <p>Første samtale koster ingenting og forplikter ingenting.</p>
         <div class="booking-meta">
@@ -200,7 +190,7 @@ const insights = {
 ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Innsikt' }], title: 'Innsikt', lead: 'Vi skriver om det vi holder på med.', img: 'innsikt-5.jpg' })}
 <section class="section">
   <div class="wrap">
-    <div class="cards-3">
+    <div class="post-grid">
       ${[
         ['innsikt-1.jpg', 'Corporate og M&amp;A', 'Fagartikkel'],
         ['innsikt-2.jpg', 'Immaterialrett og teknologi', 'Kronikk'],
@@ -208,7 +198,7 @@ ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Innsik
         ['innsikt-4.jpg', 'Tvisteløsning og prosedyre', 'Fagartikkel'],
         ['fag-ip.jpg', 'Immaterialrett og teknologi', 'Fagartikkel'],
         ['fag-tvist.jpg', 'Corporate og M&amp;A', 'Kronikk'],
-      ].map(([img, area, kind]) => `<article class="post"><img src="assets/img/${img}" alt=""><span class="meta"><span>${kind}</span><span>${area}</span><span>${ph('Dato')}</span></span><h3>${ph('Artikkeltittel')}</h3></article>`).join('')}
+      ].map(([img, area, kind]) => `<article class="insight insight--light"><img src="assets/img/${img}" alt=""><span class="badge">${kind} · ${area}</span><span class="insight-title">${ph('Artikkeltittel')}</span><span class="insight-meta">${ph('Dato')}</span></article>`).join('')}
     </div>
   </div>
 </section>`,

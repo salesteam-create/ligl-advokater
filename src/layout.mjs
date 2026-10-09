@@ -7,6 +7,27 @@ export const portraitSvg = `<svg viewBox="0 0 100 120" aria-hidden="true" fill="
 export const portrait = (label = 'Portrett kommer', cls = '') =>
   `<div class="portrait ${cls}" role="img" aria-label="Plassholder for portrett">${portraitSvg}${label ? `<span class="ph-label">${label}</span>` : ''}</div>`;
 
+export const arrow = `<svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg>`;
+
+// Line icons (24px grid, stroke = currentColor)
+const ic = (d) => `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+export const icons = {
+  gavel: ic('<path d="m14 4 6 6M11.5 6.5l6 6M13 5l-5 5 6 6 5-5M8.5 10.5 3 16a1.4 1.4 0 0 0 2 2l5.5-5.5M12 21h9"/>'),
+  bank: ic('<path d="M3 9.5 12 4l9 5.5M4.5 10v8M9.5 10v8M14.5 10v8M19.5 10v8M3 20h18"/>'),
+  chip: ic('<rect x="6.5" y="6.5" width="11" height="11" rx="1.5"/><path d="M9.5 3v3.5M14.5 3v3.5M9.5 17.5V21M14.5 17.5V21M3 9.5h3.5M3 14.5h3.5M17.5 9.5H21M17.5 14.5H21"/>'),
+  clock: ic('<circle cx="12" cy="13" r="7.5"/><path d="M12 9.5V13l2.5 2M9.5 3h5"/>'),
+  person: ic('<circle cx="12" cy="8" r="4"/><path d="M4.5 21c0-4 3.4-6.5 7.5-6.5s7.5 2.5 7.5 6.5"/>'),
+  personStar: ic('<circle cx="10" cy="8" r="4"/><path d="M3 21c0-4 3.1-6.5 7-6.5 1 0 2 .2 2.8.5M17.5 13.5l1.1 2.2 2.4.3-1.8 1.7.5 2.4-2.2-1.2-2.2 1.2.5-2.4-1.8-1.7 2.4-.3z"/>'),
+  doc: ic('<path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 15.5h5"/>'),
+  handshake: ic('<path d="m3 11 4-4 4 2 3-2 7 5M7 7l-4 6 5 5M21 12l-6 6-2-1.5M10 17l-2-2M12.5 15.5l-2-2"/>'),
+  briefcase: ic('<rect x="3" y="7.5" width="18" height="12" rx="1.5"/><path d="M8.5 7.5V5.5a1.5 1.5 0 0 1 1.5-1.5h4a1.5 1.5 0 0 1 1.5 1.5v2M3 12.5h18"/>'),
+  plus: ic('<path d="M12 5v14M5 12h14"/>'),
+  chevron: ic('<path d="m6 9 6 6 6-6"/>'),
+};
+
+export const eyebrow = (text, { center = false } = {}) =>
+  `<span class="eyebrow${center ? ' eyebrow--center' : ''}">${text}</span>`;
+
 export const practiceAreas = [
   { slug: 'corporate-ma', name: 'Corporate og M&A', img: 'fag-corporate.jpg',
     short: 'Kjøp og salg av virksomhet, emisjoner, aksjonæravtaler, opsjonsprogrammer og eierstyring. Fra term sheet til closing.' },
@@ -18,7 +39,39 @@ export const practiceAreas = [
     short: 'Kommersielle tvister i alle instanser, voldgift og mekling. Og en ærlig vurdering av om saken bør føres i det hele tatt.' },
 ];
 
-const flagNo = `<svg viewBox="0 0 22 16" preserveAspectRatio="xMidYMid slice"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg>`;
+// 2x2 image cards (Figma "Component 9-12")
+export const practiceCards = () => `
+    <div class="pa-grid">
+      ${practiceAreas.map((a, i) => `
+      <a class="pa-card" href="${a.slug}.html">
+        <img src="assets/img/${a.img}" alt="">
+        <span class="pa-num">0${i + 1}</span>
+        <span class="pa-foot">
+          <span class="pa-text"><span class="pa-title">${a.name}</span><span class="pa-desc">${a.short}</span></span>
+          <span class="pa-go" aria-hidden="true">${arrow}</span>
+        </span>
+      </a>`).join('')}
+    </div>`;
+
+// Alternating lawyer row (Figma "Frame 110/111")
+export const lawyerRow = ({ name, href, areas, bio, first, reverse = false }) => `
+      <article class="lawyer-row${reverse ? ' lawyer-row--reverse' : ''}">
+        <div class="lawyer-photo">${portrait()}</div>
+        <div class="lawyer-info">
+          <div class="stack" style="gap:16px">
+            <h3 class="lawyer-name">${name}</h3>
+            <p class="lawyer-role">Advokat og partner</p>
+          </div>
+          <div class="chips">${areas.map((a) => `<span class="chip">${a}</span>`).join('')}</div>
+          <p class="lawyer-bio">${bio}</p>
+          <div class="btn-row btn-row--tight">
+            <a class="btn btn-teal" href="kontakt.html#book">Book 20 minutter ${arrow}</a>
+            <a class="text-link" href="${href}"><span>Se profil ${arrow}</span></a>
+          </div>
+        </div>
+      </article>`;
+
+export const flagNo = `<svg viewBox="0 0 22 16" preserveAspectRatio="xMidYMid slice"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg>`;
 
 const nav = (active) => {
   const is = (k) => (active === k ? ' is-active' : '');
@@ -67,42 +120,49 @@ const nav = (active) => {
 </header>`;
 };
 
+// Footer (Figma "Footer": #080808, logo, four columns, signature, bottom bar)
 const footer = () => `
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo"><img src="assets/img/logo-teal.png" alt="LIGL advokater" width="170" height="53"></div>
-        <p class="signature">Rethinking law®</p>
-      </div>
-      <div class="footer-offices">
+      <a class="footer-logo" href="index.html" aria-label="LIGL advokater, til forsiden"><img src="assets/img/logo-white.png" alt="LIGL advokater" width="292" height="91"></a>
+      <div class="footer-cols">
         <div class="footer-col">
-          <h4>Stavanger/Sandnes</h4>
-          <span>Grenseveien 21, 4313 Sandnes</span>
-          <span>Sentralbord +47 22 17 22 19</span>
-          <span>post@ligl.no</span>
+          <h4>Naviger</h4>
+          <a href="fagomrader.html">Fagområder</a>
+          <a href="slik-jobber-vi.html">Slik jobber vi</a>
+          <a href="priser.html">Priser</a>
+          <a href="advokatene.html">Advokatene</a>
+          <a href="innsikt.html">Innsikt</a>
         </div>
         <div class="footer-col">
-          <h4>Oslo</h4>
-          <span>Apotekergata 10 A, 0180 Oslo</span>
-          <span>Sentralbord +47 22 17 22 19</span>
-          <span>post@ligl.no</span>
+          <h4>Kontor Oslo</h4>
+          <span>Besøksadresse: Apotekergata 10 A</span>
+          <span>Postadresse: Apotekergata 10 A, 0180 Oslo</span>
+          <span>Sentralbord: +47 22 17 22 19</span>
+          <span>Kontaktperson: Fredny Bade</span>
         </div>
-      </div>
-      <div class="footer-col">
-        <h4>Snarveier</h4>
-        <a href="fagomrader.html">Fagområder</a>
-        <a href="slik-jobber-vi.html">Slik jobber vi</a>
-        <a href="priser.html">Priser</a>
-        <a href="advokatene.html">Advokatene</a>
-        <a href="kontakt.html">Kontakt</a>
+        <div class="footer-col">
+          <h4>Kontor Stavanger/Sandnes</h4>
+          <span>Besøksadresse: Grenseveien 21</span>
+          <span>Postadresse: Grenseveien 21, 4313 Sandnes</span>
+          <span>Sentralbord: +47 22 17 22 19</span>
+          <span>Kontaktperson: Morten B. Tidemann</span>
+        </div>
+        <div class="footer-col">
+          <h4>Juridisk</h4>
+          <a href="#">Personvern</a>
+          <a href="#">Vilkår</a>
+          <a href="#">Tilgjengelighet</a>
+          <a href="#">Informasjonskapsler</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="wrap">
+    <p class="signature">Rethinking law®</p>
     <div class="footer-bottom">
-      <span>© 2026 LIGL advokater AS</span>
-      <span>Personvern · Forretningsvilkår</span>
+      <span>© 2026 LIGL Advokater</span>
+      <span class="footer-lang">NO <span class="flag" aria-hidden="true">${flagNo}</span></span>
+      <span>Powered by KILOWOTT</span>
     </div>
   </div>
 </footer>
@@ -134,12 +194,12 @@ export const head = ({ title, description, extraLd }) => `<meta charset="utf-8">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,900;1,400&family=Inter:wght@400;500;600&family=Geist:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="icon" href="assets/img/logo-teal.png">
 <script type="application/ld+json">${JSON.stringify(extraLd || orgLd)}</script>`;
 
-// Full standalone document (used for every page in dist/)
+// Full standalone document (used for every page in docs/)
 export const page = ({ file, title, description, body, extraLd }) => `<!doctype html>
 <html lang="nb">
 <head>
@@ -156,17 +216,6 @@ ${footer()}
 </html>
 `;
 
-// Body-only variant for the artifact entry page (the host adds doctype/head/body)
-export const fragment = ({ file, title, description, body, extraLd }) => `${head({ title, description, extraLd })}
-<script>document.documentElement.lang = 'nb';</script>
-${nav(file)}
-<main>
-${body}
-</main>
-${footer()}
-<script src="assets/js/site.js"></script>
-`;
-
 export const pageHero = ({ crumbs, title, lead, img, alt = '' }) => `
 <section class="page-hero">
   ${img ? `<img class="bg" src="assets/img/${img}" alt="${alt}">` : ''}
@@ -181,16 +230,16 @@ export const pageHero = ({ crumbs, title, lead, img, alt = '' }) => `
   </div>
 </section>`;
 
-export const ctaBand = ({ title, text, primary, secondary }) => `
-<section class="cta-band">
-  <div class="wrap">
-    <div>
-      <h2 class="h2">${title}</h2>
-      ${text ? `<p>${text}</p>` : ''}
-    </div>
-    <div class="btn-row">
-      ${primary ? `<a class="btn btn-dark" href="${primary.href}">${primary.label}</a>` : ''}
-      ${secondary ? `<a class="btn btn-ghost" href="${secondary.href}">${secondary.label}</a>` : ''}
+// Closing banner (Figma "Container" before footer: image + dark gradient, centred)
+export const ctaBand = ({ title, text, primary, secondary, img = 'kontakt.jpg' }) => `
+<section class="cta-banner">
+  <img src="assets/img/${img}" alt="">
+  <div class="cta-inner">
+    <h2 class="cta-title">${title}</h2>
+    ${text ? `<p>${text}</p>` : ''}
+    <div class="btn-row btn-row--center">
+      ${primary ? `<a class="btn btn-teal" href="${primary.href}">${primary.label} ${arrow}</a>` : ''}
+      ${secondary ? `<a class="text-link text-link--light" href="${secondary.href}"><span>${secondary.label} ${arrow}</span></a>` : ''}
     </div>
   </div>
 </section>`;

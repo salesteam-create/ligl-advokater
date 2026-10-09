@@ -14,14 +14,14 @@ const principles = [
   {
     id: 'effektivisering', title: 'Effektiviseringen tilfaller deg', body: `
       <p>Vi har ikke satt opp prisen fordi vi bruker AI, og vi legger ikke på noe teknologitillegg. Vi fakturerer den tiden vi faktisk bruker – og den tiden er vesentlig lavere enn det samme arbeidet ville krevd manuelt.</p>
-      <p>På dokumenttungt arbeid – due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk – bruker vi minst 30–50&nbsp;% færre timer enn vi ellers ville brukt, i noen tilfeller vesentlig mer. På det som ikke lar seg effektivisere på samme måte – forhandlinger, rettsmøter, de vanskelige vurderingene – er tidsbruken i hovedsak som før, men vurderingene hviler på et bedre kvalitetssikret grunnlag enn vi tidligere hadde mulighet til å etablere.</p>
+      <p>På dokumenttungt arbeid – due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk – bruker vi minst <span class="nw">30–50&nbsp;%</span> færre timer enn vi ellers ville brukt, i noen tilfeller vesentlig mer. På det som ikke lar seg effektivisere på samme måte – forhandlinger, rettsmøter, de vanskelige vurderingene – er tidsbruken i hovedsak som før, men vurderingene hviler på et bedre kvalitetssikret grunnlag enn vi tidligere hadde mulighet til å etablere.</p>
       <p><strong>Hva innsparingen skal brukes til, bestemmer du.</strong> Mange kunder velger å ta den ut som en lavere regning. Andre velger å bruke deler av den på arbeid vi tidligere måtte la ligge fordi tiden eller rammen ikke strakk til: den grundigere gjennomgangen, det ekstra scenariet, risikoen vi tidligere bare hadde ramme til å nevne, ikke til å vurdere nærmere. Begge deler er riktig – men valget tas i forkant, av deg.</p>` },
   {
     id: 'hva-timen-inneholder', title: 'Vi konkurrerer ikke på pris per time. Vi konkurrerer på hva timen inneholder.', body: `
       <p>Prisen vår ligger vesentlig lavere enn bakgrunnen vår skulle tilsi. Men det er ikke der argumentet ligger.</p>
       <p>Det som avgjør hva du betaler er ikke prisen per time, men antallet timer – og hva du får ut av dem. Hos oss gjøres arbeidet av den samme erfarne advokaten fra start til slutt. Ingen opplæring av nye folk underveis, ingen dobbeltarbeid mellom fullmektig og partner, ingen timer brukt på å sette seg inn i en sak noen andre har begynt på. Og siden 2014, i stadig større utstrekning: vesentlig færre timer på selve produksjonen.</p>
       <p>Be gjerne om et anslag fra oss og ett fra et større hus på det samme oppdraget. Det er den sammenligningen som betyr noe.</p>
-      <div><a class="btn btn-gold" href="priser.html">Se prisene våre</a></div>` },
+      <div><a class="btn btn-teal" href="priser.html">Se prisene våre</a></div>` },
   {
     id: 'korte-linjer', title: 'Korte linjer', body: `
       <p>Vi har ingen langdryge interne beslutningslinjer og ingen godkjenningsledd du må vente på. Vi tilstreber svært rask oppfølging, og du vet alltid hvem du skal ringe.</p>` },
@@ -58,7 +58,7 @@ const item = (title, text, wide = false) => `<div class="price-item${wide ? ' pr
 const pricing = {
   file: 'priser.html',
   title: 'Priser | LIGL advokater',
-  description: 'Vi fakturerer etter medgått tid, uten teknologitillegg. På dokumenttungt arbeid bruker vi minst 30–50&nbsp;% færre timer.',
+  description: 'Vi fakturerer etter medgått tid, uten teknologitillegg. På dokumenttungt arbeid bruker vi minst 30–50 % færre timer.',
   body: `
 ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Slik jobber vi', href: 'slik-jobber-vi.html' }, { label: 'Priser' }], title: 'Priser', lead: 'Vi fakturerer etter medgått tid. Det interessante er hvor mye tid som medgår.', img: 'priser.jpg' })}
 <section class="section">
@@ -68,14 +68,14 @@ ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Slik j
       <div class="hours" role="table" aria-label="Tidsbruk per type arbeid">
         <div class="hours-row" role="row">
           <div class="what" role="cell"><strong>Dokumenttungt arbeid</strong><span>Due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk</span></div>
-          <div class="effect gold" role="cell">Minst 30–50&nbsp;% færre timer, i noen tilfeller vesentlig mer</div>
+          <div class="effect gold" role="cell">Minst <span class="nw">30–50&nbsp;%</span> færre timer, i noen tilfeller vesentlig mer</div>
         </div>
         <div class="hours-row" role="row">
           <div class="what" role="cell"><strong>Forhandlinger, rettsmøter og de vanskelige vurderingene</strong><span>Arbeid som ikke lar seg effektivisere på samme måte</span></div>
           <div class="effect" role="cell">I hovedsak som før, på et bedre kvalitetssikret grunnlag</div>
         </div>
       </div>
-      <p class="body-lg" style="max-width:68ch">Det er hele effektiviseringsgevinsten, og den ligger i regningen din – ikke i prisen vår.</p>
+      <p class="body">Det er hele effektiviseringsgevinsten, og den ligger i regningen din – ikke i prisen vår.</p>
     </div>
 
     <div class="price-grid">

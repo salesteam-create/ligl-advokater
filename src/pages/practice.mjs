@@ -1,4 +1,4 @@
-import { ph, pageHero, ctaBand, practiceAreas } from '../layout.mjs';
+import { ph, pageHero, ctaBand, practiceAreas, practiceCards, eyebrow } from '../layout.mjs';
 
 const list = (items, cls = '') => `<ul class="checklist ${cls}">${items.map((i) => `<li>${i}</li>`).join('')}</ul>`;
 const area = (slug) => practiceAreas.find((a) => a.slug === slug);
@@ -148,24 +148,12 @@ const overview = {
   body: `
 ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Fagområder' }], title: 'Fagområder', lead: 'Fire felt. Ingen forsøk på å dekke alt annet.', img: 'bibliotek.jpg' })}
 <section class="section">
-  <div class="wrap stack-lg">
-    <div class="areas">
-      <div class="tiles">
-        ${practiceAreas.map((a, i) => {
-          const image = i === 1 || i === 2;
-          return `<a class="tile ${image ? 'tile--image' : 'tile--cream'}" href="${a.slug}.html">${image ? `<img src="assets/img/${a.img}" alt="">` : ''}<h3>${a.name}</h3><p>${a.short}</p><span class="link-arrow">Les mer</span></a>`;
-        }).join('')}
-      </div>
-      <div class="areas-copy">
-        <span class="eyebrow">Fire fagområder</span>
-        <h2 class="h2">Vi har valgt bort bredden bevisst.</h2>
-        <p>Det gjør at vi kan gå dypere enn dybden du ellers får kjøpt.</p>
-      </div>
-    </div>
-    <div class="panel panel--dark">
-      <span class="eyebrow">Forretningsjuss for øvrig</span>
+  <div class="wrap stack-xl">
+    ${practiceCards()}
+    <div class="soft-card">
+      ${eyebrow('Forretningsjuss for øvrig')}
       <h2 class="h3">${ph('Kort tekst om øvrig forretningsjuss, f.eks. kontraktsrett og FoU-avtaler')}</h2>
-      <p class="body-lg">${ph('Teksten mangler i dokumentet. Fylles inn eller kuttes før lansering.')}</p>
+      <p class="body">${ph('Teksten mangler i dokumentet. Fylles inn eller kuttes før lansering.')}</p>
     </div>
   </div>
 </section>
