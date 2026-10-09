@@ -4,8 +4,19 @@ export const ph = (text) => `<mark class="ph" title="Plassholder: må fylles inn
 
 export const portraitSvg = `<svg viewBox="0 0 100 120" aria-hidden="true" fill="currentColor"><circle cx="50" cy="38" r="22"/><path d="M8 120c0-26 19-44 42-44s42 18 42 44z"/></svg>`;
 
-export const portrait = (label = 'Portrett kommer', cls = '') =>
-  `<div class="portrait ${cls}" role="img" aria-label="Plassholder for portrett">${portraitSvg}${label ? `<span class="ph-label">${label}</span>` : ''}</div>`;
+// Portrait photos supplied in the client's Figma file, keyed by person
+export const photos = {
+  'Fredny Bade': 'fredny-bade',
+  'Morten B. Tidemann': 'morten-b-tidemann',
+};
+
+export const portrait = (label = 'Portrett kommer', cls = '', name = '') => photos[name]
+  ? `<div class="portrait portrait--photo ${cls}"><img src="assets/img/${photos[name]}.jpg" alt="Portrett av ${name}"></div>`
+  : `<div class="portrait ${cls}" role="img" aria-label="Plassholder for portrett">${portraitSvg}${label ? `<span class="ph-label">${label}</span>` : ''}</div>`;
+
+export const miniPortrait = (name) => photos[name]
+  ? `<div class="portrait portrait--photo mini-portrait"><img src="assets/img/${photos[name]}-sm.jpg" alt=""></div>`
+  : `<div class="portrait mini-portrait">${portraitSvg}</div>`;
 
 export const arrow = `<svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg>`;
 
@@ -56,7 +67,7 @@ export const practiceCards = () => `
 // Alternating lawyer row (Figma "Frame 110/111")
 export const lawyerRow = ({ name, href, areas, bio, first, reverse = false }) => `
       <article class="lawyer-row${reverse ? ' lawyer-row--reverse' : ''}">
-        <div class="lawyer-photo">${portrait()}</div>
+        <div class="lawyer-photo">${portrait(undefined, '', name)}</div>
         <div class="lawyer-info">
           <div class="stack" style="gap:16px">
             <h3 class="lawyer-name">${name}</h3>

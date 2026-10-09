@@ -1,4 +1,4 @@
-import { ph, portrait, portraitSvg, pageHero, ctaBand, lawyerRow, arrow } from '../layout.mjs';
+import { ph, portrait, miniPortrait, pageHero, ctaBand, lawyerRow, arrow } from '../layout.mjs';
 
 const personLd = (name) => ({
   '@context': 'https://schema.org',
@@ -15,7 +15,7 @@ const profile = ({ file, name, first, quote, intro, areas, cases, background, ro
   extraLd: personLd(name),
   body: `
 <section class="profile-hero">
-  ${portrait('Portrett i full bredde kommer')}
+  ${portrait('Portrett i full bredde kommer', '', name)}
   <div class="profile-intro">
     <nav class="crumbs" aria-label="Brødsmuler"><a href="index.html">Forside</a><span aria-hidden="true">/</span><a href="advokatene.html">Advokatene</a><span aria-hidden="true">/</span><span>${name}</span></nav>
     <h1 class="h1-display">${name}</h1>
@@ -108,7 +108,7 @@ ${ctaBand({ title: 'Har du en sak?', text: 'Første samtale koster ingenting og 
 
 const person = (id, name) => `
       <div class="contact-card" id="${id}">
-        <div class="who"><div class="portrait mini-portrait">${portraitSvg}</div><div><div class="h4">${name}</div><div class="muted" style="font-size:14px">Advokat og partner</div></div></div>
+        <div class="who">${miniPortrait(name)}<div><div class="h4">${name}</div><div class="muted" style="font-size:14px">Advokat og partner</div></div></div>
         <div class="row"><span class="k">Direkte</span><span class="v">${ph('dir. tlf')}</span></div>
         <div class="row"><span class="k">E-post</span><span class="v">${ph('e-post')}</span></div>
       </div>`;

@@ -253,6 +253,8 @@ html.ph-off .ph { background: none; border-color: transparent; padding: 0; }
 /* Portrait placeholder (real photos to come) */
 .portrait { position: relative; display: grid; place-items: center; overflow: hidden; background: linear-gradient(180deg, #e7edf0 0%, #d5dfe3 100%); }
 .portrait svg { width: 46%; height: auto; color: rgba(23, 94, 121, 0.18); }
+.portrait--photo { background: #4a6470; }
+.portrait--photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
 .portrait .ph-label { position: absolute; left: 14px; top: 14px; font: 500 12px/1.3 var(--sans); color: var(--teal); background: rgba(255, 255, 255, 0.85); border: 1px dashed var(--ph-line); border-radius: 4px; padding: 4px 8px; z-index: 1; }
 
 /* ---------- How we work (black, isometric plates) ---------- */
