@@ -8,6 +8,13 @@
     });
   }
 
+  // Home: header sits over the hero until the page scrolls
+  if (header && header.classList.contains('site-header--overlay')) {
+    var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 40); };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
   // Dropdowns: hover on desktop, tap to expand on small screens
   document.querySelectorAll('.has-sub > button.nav-link').forEach(function (btn) {
     btn.addEventListener('click', function () {

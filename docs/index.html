@@ -8,16 +8,16 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="icon" href="assets/img/logo-teal.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LegalService","name":"LIGL advokater","email":"post@ligl.no","telephone":"+47 22 17 22 19","address":[{"@type":"PostalAddress","streetAddress":"Grenseveien 21","postalCode":"4313","addressLocality":"Sandnes","addressCountry":"NO"},{"@type":"PostalAddress","streetAddress":"Apotekergata 10 A","postalCode":"0180","addressLocality":"Oslo","addressCountry":"NO"}],"employee":[{"@type":"Person","name":"Morten B. Tidemann","jobTitle":"Advokat og partner"},{"@type":"Person","name":"Fredny Bade","jobTitle":"Advokat og partner"}]}</script>
 </head>
 <body>
 
-<header class="site-header">
+<header class="site-header site-header--overlay">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="LIGL advokater, til forsiden"><img src="assets/img/logo-cream.png" alt="LIGL advokater" width="128" height="40"></a>
+    <a class="logo" href="index.html" aria-label="LIGL advokater, til forsiden"><img src="assets/img/logo-white.png" alt="LIGL advokater" width="95" height="30"></a>
     <button class="menu-toggle" type="button" aria-label="Meny" aria-expanded="false" aria-controls="hovedmeny"><span></span></button>
     <nav class="nav" id="hovedmeny" aria-label="Hovedmeny">
       <ul>
@@ -40,7 +40,16 @@
         <li><a class="nav-link" href="innsikt.html">Innsikt</a></li>
         <li><a class="nav-link" href="kontakt.html">Kontakt</a></li>
       </ul>
-      <a class="btn btn-gold" href="kontakt.html#book">Book 20 minutter</a>
+      <div class="nav-actions">
+        <div class="has-sub lang">
+          <button class="nav-link lang-btn" type="button" aria-expanded="false" aria-label="Språk: norsk">NO <span class="flag" aria-hidden="true"><svg viewBox="0 0 22 16" preserveAspectRatio="xMidYMid slice"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg></span></button>
+          <div class="sub sub--right">
+            <span class="sub-item is-active" aria-current="true">Norsk</span>
+            <span class="sub-item is-disabled" aria-disabled="true">English (kommer)</span>
+          </div>
+        </div>
+        <a class="btn btn-white" href="kontakt.html#book">Book 20 minutter</a>
+      </div>
     </nav>
   </div>
 </header>
@@ -48,13 +57,17 @@
 
 <section class="hero">
   <img class="hero-bg" src="assets/img/hero-justitia.jpg" alt="">
-  <div class="wrap">
-    <div class="hero-copy">
-      <h1 class="h1-display">Tung forretningsjuss. Rett fra partner.</h1>
-      <p>Vi har bygget karrierene våre i landets ledende advokatfirmaer. I dag leverer vi den samme jussen – uten mellomleddene, og med teknologi vi har utviklet selv siden 2014.</p>
-      <div class="btn-row">
-        <a class="btn btn-gold" href="kontakt.html">Ta kontakt</a>
-        <a class="btn btn-ghost" href="slik-jobber-vi.html">Se hvordan vi jobber</a>
+  <span class="hero-glow" aria-hidden="true"></span>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Tung forretningsjuss. Rett fra partner.</h1>
+    <div class="hero-foot">
+      <div class="hero-actions">
+        <a class="btn btn-white" href="kontakt.html#book">Book 20 minutter <svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg></a>
+        <a class="hero-link" href="fagomrader.html"><span>Utforsk fagområdene <svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg></span></a>
+      </div>
+      <div class="hero-note">
+        <span class="hero-eyebrow">Rethinking law®</span>
+        <p>Vi har bygget karrierene våre i landets ledende advokatfirmaer. I dag leverer vi den samme jussen – uten mellomleddene, og med teknologi vi har utviklet selv siden 2014.</p>
       </div>
     </div>
   </div>
@@ -76,7 +89,7 @@
       <p class="fig-label">med kunstig intelligens i juridisk produksjon – i stadig større utstrekning</p>
     </div>
     <div class="fig fig--cream">
-      <div class="fig-num">Minst 30–50 %</div>
+      <div class="fig-num">Minst 30–50&nbsp;%</div>
       <p class="fig-label">færre timer på dokumenttungt arbeid enn det ellers ville krevd</p>
     </div>
   </div>
@@ -187,7 +200,7 @@
       <div class="panel panel--cream">
         <span class="eyebrow">Priser</span>
         <h2 class="h2">Uendret pris per time. Vesentlig færre timer.</h2>
-        <p>Vi fakturerer etter medgått tid, slik vi alltid har gjort, og til samme sats som før. Det som har endret seg, er hvor mange timer som går med: på dokumenttungt arbeid bruker vi i dag minst 30–50 % færre timer enn arbeidet ellers ville krevd.</p>
+        <p>Vi fakturerer etter medgått tid, slik vi alltid har gjort, og til samme sats som før. Det som har endret seg, er hvor mange timer som går med: på dokumenttungt arbeid bruker vi i dag minst 30–50&nbsp;% færre timer enn arbeidet ellers ville krevd.</p>
         <p>Den innsparingen er din. Du kan ta den ut som en lavere regning, eller la oss bruke deler av den på å gå dypere der det betyr noe for deg. Det valget tar du – i forkant.</p>
         <div><a class="btn btn-dark" href="priser.html">Se priser</a></div>
       </div>

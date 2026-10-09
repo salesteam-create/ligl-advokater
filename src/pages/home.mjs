@@ -19,13 +19,17 @@ export default {
   body: `
 <section class="hero">
   <img class="hero-bg" src="assets/img/hero-justitia.jpg" alt="">
-  <div class="wrap">
-    <div class="hero-copy">
-      <h1 class="h1-display">Tung forretningsjuss. Rett fra partner.</h1>
-      <p>Vi har bygget karrierene våre i landets ledende advokatfirmaer. I dag leverer vi den samme jussen – uten mellomleddene, og med teknologi vi har utviklet selv siden 2014.</p>
-      <div class="btn-row">
-        <a class="btn btn-gold" href="kontakt.html">Ta kontakt</a>
-        <a class="btn btn-ghost" href="slik-jobber-vi.html">Se hvordan vi jobber</a>
+  <span class="hero-glow" aria-hidden="true"></span>
+  <div class="wrap hero-inner">
+    <h1 class="hero-title">Tung forretningsjuss. Rett fra partner.</h1>
+    <div class="hero-foot">
+      <div class="hero-actions">
+        <a class="btn btn-white" href="kontakt.html#book">Book 20 minutter <svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg></a>
+        <a class="hero-link" href="fagomrader.html"><span>Utforsk fagområdene <svg class="arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M5.2 1.6a.9.9 0 0 1 1.27 0l4.77 4.77a.9.9 0 0 1 0 1.27l-4.77 4.77a.9.9 0 1 1-1.27-1.27L9.33 7 5.2 2.87a.9.9 0 0 1 0-1.27z" fill="currentColor"/></svg></span></a>
+      </div>
+      <div class="hero-note">
+        <span class="hero-eyebrow">Rethinking law®</span>
+        <p>Vi har bygget karrierene våre i landets ledende advokatfirmaer. I dag leverer vi den samme jussen – uten mellomleddene, og med teknologi vi har utviklet selv siden 2014.</p>
       </div>
     </div>
   </div>
@@ -47,7 +51,7 @@ export default {
       <p class="fig-label">med kunstig intelligens i juridisk produksjon – i stadig større utstrekning</p>
     </div>
     <div class="fig fig--cream">
-      <div class="fig-num">Minst 30–50 %</div>
+      <div class="fig-num">Minst 30–50&nbsp;%</div>
       <p class="fig-label">færre timer på dokumenttungt arbeid enn det ellers ville krevd</p>
     </div>
   </div>
@@ -134,7 +138,7 @@ export default {
       <div class="panel panel--cream">
         <span class="eyebrow">Priser</span>
         <h2 class="h2">Uendret pris per time. Vesentlig færre timer.</h2>
-        <p>Vi fakturerer etter medgått tid, slik vi alltid har gjort, og til samme sats som før. Det som har endret seg, er hvor mange timer som går med: på dokumenttungt arbeid bruker vi i dag minst 30–50 % færre timer enn arbeidet ellers ville krevd.</p>
+        <p>Vi fakturerer etter medgått tid, slik vi alltid har gjort, og til samme sats som før. Det som har endret seg, er hvor mange timer som går med: på dokumenttungt arbeid bruker vi i dag minst 30–50&nbsp;% færre timer enn arbeidet ellers ville krevd.</p>
         <p>Den innsparingen er din. Du kan ta den ut som en lavere regning, eller la oss bruke deler av den på å gå dypere der det betyr noe for deg. Det valget tar du – i forkant.</p>
         <div><a class="btn btn-dark" href="priser.html">Se priser</a></div>
       </div>

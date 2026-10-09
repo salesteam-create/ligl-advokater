@@ -18,6 +18,8 @@ export const practiceAreas = [
     short: 'Kommersielle tvister i alle instanser, voldgift og mekling. Og en ærlig vurdering av om saken bør føres i det hele tatt.' },
 ];
 
+const flagNo = `<svg viewBox="0 0 22 16" preserveAspectRatio="xMidYMid slice"><rect width="22" height="16" fill="#ba0c2f"/><path d="M6 0h4v16H6zM0 6h22v4H0z" fill="#fff"/><path d="M7 0h2v16H7zM0 7h22v2H0z" fill="#00205b"/></svg>`;
+
 const nav = (active) => {
   const is = (k) => (active === k ? ' is-active' : '');
   const sub = (href, label) => `<a href="${href}" class="${active === href ? 'is-active' : ''}">${label}</a>`;
@@ -25,9 +27,9 @@ const nav = (active) => {
   const howActive = active === 'slik-jobber-vi.html' || active === 'priser.html';
   const lawyersActive = ['advokatene.html', 'morten-b-tidemann.html', 'fredny-bade.html'].includes(active);
   return `
-<header class="site-header">
+<header class="site-header${active === 'index.html' ? ' site-header--overlay' : ''}">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="LIGL advokater, til forsiden"><img src="assets/img/logo-cream.png" alt="LIGL advokater" width="128" height="40"></a>
+    <a class="logo" href="index.html" aria-label="LIGL advokater, til forsiden"><img src="assets/img/logo-white.png" alt="LIGL advokater" width="95" height="30"></a>
     <button class="menu-toggle" type="button" aria-label="Meny" aria-expanded="false" aria-controls="hovedmeny"><span></span></button>
     <nav class="nav" id="hovedmeny" aria-label="Hovedmeny">
       <ul>
@@ -50,7 +52,16 @@ const nav = (active) => {
         <li><a class="nav-link${is('innsikt.html')}" href="innsikt.html">Innsikt</a></li>
         <li><a class="nav-link${is('kontakt.html')}" href="kontakt.html">Kontakt</a></li>
       </ul>
-      <a class="btn btn-gold" href="kontakt.html#book">Book 20 minutter</a>
+      <div class="nav-actions">
+        <div class="has-sub lang">
+          <button class="nav-link lang-btn" type="button" aria-expanded="false" aria-label="Språk: norsk">NO <span class="flag" aria-hidden="true">${flagNo}</span></button>
+          <div class="sub sub--right">
+            <span class="sub-item is-active" aria-current="true">Norsk</span>
+            <span class="sub-item is-disabled" aria-disabled="true">English (kommer)</span>
+          </div>
+        </div>
+        <a class="btn btn-white" href="kontakt.html#book">Book 20 minutter</a>
+      </div>
     </nav>
   </div>
 </header>`;
@@ -123,7 +134,7 @@ export const head = ({ title, description, extraLd }) => `<meta charset="utf-8">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="icon" href="assets/img/logo-teal.png">
 <script type="application/ld+json">${JSON.stringify(extraLd || orgLd)}</script>`;

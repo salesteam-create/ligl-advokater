@@ -14,7 +14,7 @@ const principles = [
   {
     id: 'effektivisering', title: 'Effektiviseringen tilfaller deg', body: `
       <p>Vi har ikke satt opp prisen fordi vi bruker AI, og vi legger ikke på noe teknologitillegg. Vi fakturerer den tiden vi faktisk bruker – og den tiden er vesentlig lavere enn det samme arbeidet ville krevd manuelt.</p>
-      <p>På dokumenttungt arbeid – due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk – bruker vi minst 30–50 % færre timer enn vi ellers ville brukt, i noen tilfeller vesentlig mer. På det som ikke lar seg effektivisere på samme måte – forhandlinger, rettsmøter, de vanskelige vurderingene – er tidsbruken i hovedsak som før, men vurderingene hviler på et bedre kvalitetssikret grunnlag enn vi tidligere hadde mulighet til å etablere.</p>
+      <p>På dokumenttungt arbeid – due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk – bruker vi minst 30–50&nbsp;% færre timer enn vi ellers ville brukt, i noen tilfeller vesentlig mer. På det som ikke lar seg effektivisere på samme måte – forhandlinger, rettsmøter, de vanskelige vurderingene – er tidsbruken i hovedsak som før, men vurderingene hviler på et bedre kvalitetssikret grunnlag enn vi tidligere hadde mulighet til å etablere.</p>
       <p><strong>Hva innsparingen skal brukes til, bestemmer du.</strong> Mange kunder velger å ta den ut som en lavere regning. Andre velger å bruke deler av den på arbeid vi tidligere måtte la ligge fordi tiden eller rammen ikke strakk til: den grundigere gjennomgangen, det ekstra scenariet, risikoen vi tidligere bare hadde ramme til å nevne, ikke til å vurdere nærmere. Begge deler er riktig – men valget tas i forkant, av deg.</p>` },
   {
     id: 'hva-timen-inneholder', title: 'Vi konkurrerer ikke på pris per time. Vi konkurrerer på hva timen inneholder.', body: `
@@ -58,7 +58,7 @@ const item = (title, text, wide = false) => `<div class="price-item${wide ? ' pr
 const pricing = {
   file: 'priser.html',
   title: 'Priser | LIGL advokater',
-  description: 'Vi fakturerer etter medgått tid, uten teknologitillegg. På dokumenttungt arbeid bruker vi minst 30–50 % færre timer.',
+  description: 'Vi fakturerer etter medgått tid, uten teknologitillegg. På dokumenttungt arbeid bruker vi minst 30–50&nbsp;% færre timer.',
   body: `
 ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Slik jobber vi', href: 'slik-jobber-vi.html' }, { label: 'Priser' }], title: 'Priser', lead: 'Vi fakturerer etter medgått tid. Det interessante er hvor mye tid som medgår.', img: 'priser.jpg' })}
 <section class="section">
@@ -68,7 +68,7 @@ ${pageHero({ crumbs: [{ label: 'Forside', href: 'index.html' }, { label: 'Slik j
       <div class="hours" role="table" aria-label="Tidsbruk per type arbeid">
         <div class="hours-row" role="row">
           <div class="what" role="cell"><strong>Dokumenttungt arbeid</strong><span>Due diligence, gjennomgang av avtaleverk, første utkast, rettskildesøk</span></div>
-          <div class="effect gold" role="cell">Minst 30–50 % færre timer, i noen tilfeller vesentlig mer</div>
+          <div class="effect gold" role="cell">Minst 30–50&nbsp;% færre timer, i noen tilfeller vesentlig mer</div>
         </div>
         <div class="hours-row" role="row">
           <div class="what" role="cell"><strong>Forhandlinger, rettsmøter og de vanskelige vurderingene</strong><span>Arbeid som ikke lar seg effektivisere på samme måte</span></div>
