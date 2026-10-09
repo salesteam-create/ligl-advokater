@@ -53,7 +53,12 @@ export default {
   description: 'Tung forretningsjuss rett fra partner. Corporate og M&A, immaterialrett og teknologi, arbeidsrett, tvisteløsning og prosedyre.',
   body: `
 <section class="hero">
-  <img class="hero-bg" src="assets/img/hero-justitia.jpg" alt="">
+  <video class="hero-bg" autoplay muted loop playsinline preload="auto" poster="assets/img/hero-video-poster.jpg" aria-hidden="true">
+    <source src="assets/video/hero-mobile.webm" type="video/webm" media="(max-width: 760px)">
+    <source src="assets/video/hero-mobile.mp4" type="video/mp4" media="(max-width: 760px)">
+    <source src="assets/video/hero.webm" type="video/webm">
+    <source src="assets/video/hero.mp4" type="video/mp4">
+  </video>
   <span class="hero-glow" aria-hidden="true"></span>
   <div class="wrap hero-inner">
     <h1 class="hero-title">Tung forretningsjuss. Rett fra partner.</h1>
@@ -97,7 +102,7 @@ export default {
         <p class="body">Det gir tre praktiske konsekvenser for deg: du forholder deg til én advokat gjennom hele saken, du får tett og rask oppfølging, og du betaler for færre timer enn den samme jobben krevde for kort tid siden.</p>
         <div><a class="btn btn-teal" href="kontakt.html#book">Book 20 minutter ${arrow}</a></div>
       </div>
-      <img class="way-img" src="assets/img/slik-jobber-vi.jpg" alt="Justitia-statue i et kontor med utsikt over byen">
+      <img class="way-img" src="assets/img/bibliotek.jpg" alt="Bokhyller i et juridisk bibliotek">
     </div>
     <div class="flow" aria-label="Fra deg til resultat: partner og teknologi, ingen mellomledd">
       ${flow.map((f, i) => `${i ? '<span class="flow-link" aria-hidden="true"><i></i><b></b><i></i></span>' : ''}<span class="flow-pill${f.dark ? ' flow-pill--dark' : ''}">${f.icon}<span>${f.label}</span></span>`).join('')}

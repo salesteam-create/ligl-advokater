@@ -8,6 +8,13 @@
     });
   }
 
+  // Hero video: respect reduced motion (the poster frame stays as a still image)
+  var heroVideo = document.querySelector('video.hero-bg');
+  if (heroVideo && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    heroVideo.removeAttribute('autoplay');
+    heroVideo.pause();
+  }
+
   // Home: header sits over the hero until the page scrolls
   if (header && header.classList.contains('site-header--overlay')) {
     var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 40); };
