@@ -68,7 +68,6 @@ export default {
         <a class="text-link text-link--light" href="fagomrader.html"><span>Utforsk fagområdene ${arrow}</span></a>
       </div>
       <div class="hero-note">
-        <span class="hero-eyebrow">Rethinking law®</span>
         <p>Vi har bygget karrierene våre i landets ledende advokatfirmaer. I dag leverer vi den samme jussen – uten mellomleddene, og med teknologi vi har utviklet selv siden 2014.</p>
       </div>
     </div>

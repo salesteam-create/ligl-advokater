@@ -167,7 +167,6 @@ video.hero-bg { transform: scaleX(-1); }
 .hero-actions .btn .arrow, .hero-actions .text-link .arrow { width: 14px; height: 14px; }
 .hero-actions .text-link { min-height: 44px; padding-inline: 16px; }
 .hero-note { width: 476px; max-width: 100%; display: grid; gap: 8px; }
-.hero-eyebrow { font: 500 12px/1 var(--sans); letter-spacing: 0.107em; text-transform: uppercase; }
 .hero-note p { font: 400 16px/1.5 var(--sans); }
 @media (max-width: 760px) { .hero-foot { flex-direction: column-reverse; align-items: flex-start; } .hero-glow { left: 10%; } }
 
