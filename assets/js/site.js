@@ -66,6 +66,49 @@
     document.querySelectorAll('.principle[id]').forEach(function (s) { io.observe(s); });
   }
 
+  // "Slik jobber vi" on the homepage: scroll-driven stacking plates
+  var how = document.querySelector('[data-how]');
+  if (how) {
+    var plates = how.querySelectorAll('.iso-plate');
+    var steps = how.querySelectorAll('.how-step');
+    var n = plates.length;
+    var motionOK = !window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ticking = false;
+    var ease = function (x) { return 1 - Math.pow(1 - x, 3); };
+    var update = function () {
+      ticking = false;
+      if (!how.classList.contains('is-scrubbing')) return;
+      var rect = how.getBoundingClientRect();
+      var span = how.offsetHeight - window.innerHeight;
+      var p = Math.min(1, Math.max(0, -rect.top / span));
+      // Leave a short hold at the end so the finished stack is seen before the page moves on
+      var prog = Math.min(1, p / 0.85) * n;
+      var active = Math.min(n - 1, Math.floor(prog));
+      plates.forEach(function (pl, i) {
+        var t = Math.min(1, Math.max(0, prog - i));
+        pl.style.setProperty('--t', ease(t).toFixed(3));
+        pl.classList.toggle('is-active', i === active && t > 0);
+      });
+      steps.forEach(function (st, i) {
+        st.classList.toggle('is-active', i === active);
+        st.classList.toggle('is-done', i < active);
+      });
+    };
+    var request = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
+    var setMode = function () {
+      var on = motionOK && window.innerWidth > 900 && window.innerHeight >= 680;
+      how.classList.toggle('is-scrubbing', on);
+      if (!on) {
+        plates.forEach(function (pl) { pl.style.removeProperty('--t'); pl.classList.remove('is-active'); });
+        steps.forEach(function (st) { st.classList.remove('is-active', 'is-done'); });
+      }
+      update();
+    };
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', setMode);
+    setMode();
+  }
+
   // Booking mock: stands in for the Calendly embed
   var booking = document.querySelector('[data-booking]');
   if (booking) {

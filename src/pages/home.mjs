@@ -15,11 +15,11 @@ const flow = [
 ];
 
 const principles = [
-  { n: '01', icon: icons.person, title: 'Én advokat gjennom hele saken', id: 'en-advokat' },
-  { n: '02', icon: icons.chip, title: 'Teknologi der andre bruker bemanning', id: 'teknologi' },
-  { n: '03', icon: icons.clock, title: 'Effektiviseringen tilfaller deg', id: 'effektivisering' },
-  { n: '04', icon: icons.briefcase, title: 'Korte linjer', id: 'korte-linjer' },
-  { n: '05', icon: icons.handshake, title: 'Vi har få bindinger', id: 'fa-bindinger' },
+  { n: '01', icon: icons.person, title: 'Én advokat gjennom hele saken', id: 'en-advokat', text: 'Advokaten du møter i første samtale, skriver avtalen, forhandler den og fører saken i retten.' },
+  { n: '02', icon: icons.chip, title: 'Teknologi der andre bruker bemanning', id: 'teknologi', text: 'Vi har brukt kunstig intelligens i juridisk produksjon siden 2014. Vurderingene gjør vi selv.' },
+  { n: '03', icon: icons.clock, title: 'Effektiviseringen tilfaller deg', id: 'effektivisering', text: 'Ingen teknologitillegg. Minst 30–50&nbsp;% færre timer på dokumenttungt arbeid.' },
+  { n: '04', icon: icons.briefcase, title: 'Korte linjer', id: 'korte-linjer', text: 'Ingen godkjenningsledd du må vente på. Du vet alltid hvem du skal ringe.' },
+  { n: '05', icon: icons.handshake, title: 'Vi har få bindinger', id: 'fa-bindinger', text: 'Vi kan ofte ta oppdrag som større miljøer må avslå på grunn av interessekonflikt.' },
 ];
 
 const pricing = ['Ingen teknologitillegg', 'Anslag i forkant', 'Fastpris der oppdraget lar seg avgrense', 'Fast månedlig beløp som alternativ', 'Innsparingen er din'];
@@ -131,21 +131,32 @@ export default {
   </div>
 </section>
 
-<section class="section section--black how">
-  <div class="wrap stack-xl">
-    <div class="center-head">
-      ${eyebrow('Slik jobber vi', { center: true })}
-      <h2 class="h2">En annen måte å jobbe på.</h2>
+<section class="how-scroll" data-how aria-labelledby="how-title">
+  <div class="how-sticky">
+    <div class="wrap how-stage">
+      <div class="center-head">
+        ${eyebrow('Slik jobber vi', { center: true })}
+        <h2 class="h2" id="how-title">En annen måte å jobbe på.</h2>
+      </div>
+      <div class="how-grid">
+        <div class="iso-stack" aria-hidden="true">
+          ${principles.map((p, i) => `<span class="iso-plate" style="--i:${i}"><span class="iso-face">${p.icon}<span class="iso-num">${p.n}</span></span></span>`).join('')}
+        </div>
+        <ol class="how-steps">
+          ${principles.map((p) => `
+          <li class="how-step">
+            <a href="slik-jobber-vi.html#${p.id}">
+              <span class="how-step-num">${p.n}</span>
+              <span class="how-step-body"><span class="how-step-title">${p.title}</span><span class="how-step-text">${p.text}</span></span>
+            </a>
+          </li>`).join('')}
+        </ol>
+      </div>
     </div>
-    <ol class="iso-list">
-      ${principles.map((p) => `
-      <li>
-        <a href="slik-jobber-vi.html#${p.id}" class="iso-row">
-          <span class="iso-plate" aria-hidden="true"><span class="iso-face">${p.icon}<span class="iso-num">${p.n}</span></span></span>
-          <span class="iso-title">${p.title}</span>
-        </a>
-      </li>`).join('')}
-    </ol>
+  </div>
+</section>
+<section class="section section--black how-outro">
+  <div class="wrap stack-xl">
     <hr class="rule rule--light">
     <p class="how-quote">Ingen langdryge interne beslutningslinjer. Vi tilstreber svært rask oppfølging, og du vet alltid hvem du skal ringe.</p>
   </div>
